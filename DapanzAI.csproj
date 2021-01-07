@@ -87,7 +87,6 @@
     <Compile Include="Actions\EmptyAction.cs" />
     <Compile Include="Property\PropertyBase.cs" />
     <Compile Include="Property\ScriptableTarget.cs" />
-    <Compile Include="Editor\EnumFlagsAttribute.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

@@ -7,7 +7,7 @@ namespace DapanzAI
     {
 
         Coroutine m_FlickeringCoroutine = null;
-        Color m_OriginalColor;
+        private Color m_OriginalColor;
         SpriteRenderer playerSprite;
         Animator pAnim;
         protected override void Init()
