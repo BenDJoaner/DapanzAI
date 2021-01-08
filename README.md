@@ -21,15 +21,15 @@
 | Condition |调用一个方法，如果方法返回true，则返回成功，否则返回失败|	 function  |	 -  |
 | Repeat |重复运行N次|	 int  |	 -  |
 | Wait |  	节点，可用于任意节点操作         |	 float  |	 -  |
-| Trigger |（Animator）相当于动画状态机SetTrigger|	 animator,string,bool  |	 -  |
-| WaitForAnimatorState |（Animator）等待动画进入到某个Clip后继续|	 -  |	 -  |
-| SetBool |（Animator）相当于动画状态机SetBool|	 -  |	 -  |
-| SetActive |设置对象可见|	 -  |	 -  |
-| WaitForAnimatorSignal |等待动画器上的SendSignal状态机行为收到信号|	 -  |	 -  |
+| Trigger |（Animator）相当于动画状态机SetTrigger|	 Animator,string,bool  |	 -  |
+| WaitForAnimatorState |（Animator）等待动画进入到某个Clip后继续|	 Animator,string,int  |	 -  |
+| SetBool |（Animator）相当于动画状态机SetBool|	 Animator,string,bool  |	 -  |
+| SetActive |设置对象可见|	 GameObject,bool  |	 Animator,string,bool  |
+| WaitForAnimatorSignal |等待动画器上的SendSignal状态机行为收到信号|	 Animator,string,string,int  |	 -  |
+| LoopCountdown | 在时间内持续执行，时间结束跳出|	 float  |	 -  |
+| RandomSequence | 随机序列|	 int[]  |	 -  |
+| Log |打印日志|	 string  |	 -  |
 | Terminate | 终止BT|	 -  |	 -  |
-| RandomSequence | 随机序列|	 -  |	 -  |
-| Log |打印日志|	 -  |	 -  |
-
 
 ## Actions 行为节点/Action Nodes
 ### ActionBase 为节点基类
