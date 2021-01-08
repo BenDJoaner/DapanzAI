@@ -11,24 +11,24 @@
 | :----: | ----------------------------- | :----------: |:----------: |
 | Root |节点，可用于任意节点操作|	 -  |	 -  |
 | Sequence |执行序列，如果子节点执行失败，则终止|	 -  |	 -  |
-| Selector |执行每个子节点，如果有一个成功就返回true，否则返回false|	 bool  |	 -  |
-| RunCoroutine |调用协程|	 IEnumerator  |	 -  |
-| Action |调用方法|	 function  |	 -  |
-| If |运行结果为true执行|	 function  |	 -  |
-| If |参数为true执行|	 bool  |	 -  |
-| While |运行结果为true则一直执行|	 function  |	 -  |
-| While |参数结果为true则一直执行|	 bool  |	 -  |
-| Condition |调用一个方法，如果方法返回true，则返回成功，否则返回失败|	 function  |	 -  |
-| Repeat |重复运行N次|	 int  |	 -  |
-| Wait |  	节点，可用于任意节点操作         |	 float  |	 -  |
-| Trigger |（Animator）相当于动画状态机SetTrigger|	 Animator,string,bool  |	 -  |
-| WaitForAnimatorState |（Animator）等待动画进入到某个Clip后继续|	 Animator,string,int  |	 -  |
-| SetBool |（Animator）相当于动画状态机SetBool|	 Animator,string,bool  |	 -  |
-| SetActive |设置对象可见|	 GameObject,bool  |	 Animator,string,bool  |
-| WaitForAnimatorSignal |等待动画器上的SendSignal状态机行为收到信号|	 Animator,string,string,int  |	 -  |
-| LoopCountdown | 在时间内持续执行，时间结束跳出|	 float  |	 -  |
-| RandomSequence | 随机序列|	 int[]  |	 -  |
-| Log |打印日志|	 string  |	 -  |
+| Selector |执行每个子节点，如果有一个成功就返回true，否则返回false|	 bool  |	 是否随机执行  |
+| RunCoroutine |调用协程|	 IEnumerator  |	 协程  |
+| Action |调用方法|	 function  |	 方法  |
+| If |运行结果为true执行|	 function  |	 运行的方法  |
+| If |参数为true执行|	 bool  |	 参数  |
+| While |运行结果为true则一直执行|	 function  |	 运行的方法  |
+| While |参数结果为true则一直执行|	 bool  |	 参数  |
+| Condition |调用一个方法，如果方法返回true，则返回成功，否则返回失败|	 function  |	 运行的方法  |
+| Repeat |重复运行N次|	 int  |	 运行的次数  |
+| Wait |  	节点，可用于任意节点操作         |	 float  |	 等待的时间  |
+| Trigger |（Animator）相当于动画状态机SetTrigger|	 Animator,string,bool  |	 状态机，状态名称，不用Reset=true  |
+| WaitForAnimatorState |（Animator）等待动画进入到某个Clip后继续|	 Animator,string,int  |	 状态机，状态名，Layer  |
+| SetBool |（Animator）相当于动画状态机SetBool|	 Animator,string,bool  |	 状态机，状态名，值  |
+| SetActive |设置对象可见|	 GameObject,bool  |	 对象,可见 |
+| WaitForAnimatorSignal |等待动画器上的SendSignal状态机行为收到信号|	 Animator,string,string,int  |	 状态机，状态名，动画状态，Layer  |
+| LoopCountdown | 在时间内持续执行，时间结束跳出|	 float  |	 执行时间  |
+| RandomSequence | 随机序列|	 int[]  |	 权重（不填则全为1）  |
+| Log |打印日志|	 string  |	 文本内容  |
 | Terminate | 终止BT|	 -  |	 -  |
 
 ## Actions 行为节点/Action Nodes
