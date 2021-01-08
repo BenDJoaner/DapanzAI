@@ -15,9 +15,9 @@
 | RunCoroutine |调用协程|	 IEnumerator  |	 协程  |
 | Action |调用方法|	 function  |	 方法  |
 | If |运行结果为true执行|	 function  |	 运行的方法  |
-| If |参数为true执行|	 bool  |	 参数  |
+| If（重载） |参数为true执行|	 bool  |	 参数  |
 | While |运行结果为true则一直执行|	 function  |	 运行的方法  |
-| While |参数结果为true则一直执行|	 bool  |	 参数  |
+| While（重载） |参数结果为true则一直执行|	 bool  |	 参数  |
 | Condition |调用一个方法，如果方法返回true，则返回成功，否则返回失败|	 function  |	 运行的方法  |
 | Repeat |重复运行N次|	 int  |	 运行的次数  |
 | Wait |  	节点，可用于任意节点操作         |	 float  |	 等待的时间  |
@@ -46,9 +46,13 @@ public override BTNode TryAction(BTAgent behavier)
     return base.TryAction(selfAction);
 }
 ```
-| 节点函数 | 描述                          | 参数 |
+### 通用节点
+| 节点函数 | 类别 | 描述 |
 | :----: | ----------------------------- | :----------: |
-| Root |  	节点，可用于任意节点操作         |	 -  |
+| AIStateCondition |控制节点|	 根据战斗状态执行  |
+| LoopSequence |控制节点|	 循环执行序列  |
+| RandomSequence |控制节点|	 随机执行  |
+| RepeatNTimes |控制节点|	 执行N次  |
 ## Agents 控制器/Controller
 
 ## Data 可编程数据/Scriptable Data
