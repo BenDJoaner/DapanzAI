@@ -52,7 +52,7 @@ namespace DapanzAI
         bool isJumping;
         float jumpPressTime;
 
-        public EpisodeBase episode;
+        public EpisodeBase episode = new EpisodeBase();
         public Animator Anim { get => anim; }
 
         /// <summary>
