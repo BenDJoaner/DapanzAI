@@ -8,21 +8,21 @@ namespace DapanzAI
     [RequireComponent(typeof(Collider2D))]
     public class AgentBase : MonoBehaviour
     {
-        //[FieldLabel("基础行为状态")]
+        [FieldLabel("基础行为状态")]
         public ControlState state = ControlState.sleep;
-        //[FieldLabel("重力生效")]
+        [FieldLabel("重力生效")]
         public bool updateGravity = true;
-        //[FieldLabel("脚踩的东西")]
+        [FieldLabel("脚踩的东西")]
         public GroundType groundType;
-        //[FieldLabel("角色模型")]
+        [FieldLabel("角色模型")]
         public Transform puppet = null;
-        //[FieldLabel("手部位置")]
+        [FieldLabel("手部位置")]
         public Transform handAnchor = null;
-        //[FieldLabel("自动面向")]
+        [FieldLabel("自动面向")]
         public Facing AutoFace = Facing.right;
-        //[FieldLabel("强制面向")]
+        [FieldLabel("强制面向")]
         public Facing forceFace = Facing.none;
-        //[FieldLabel("碰到墙")]
+        [FieldLabel("碰到墙")]
         public Facing attachWall = Facing.none;
         [Header("左右/地面检查点偏移")]
         [Range(0, -5)]

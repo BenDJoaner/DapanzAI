@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace DapanzAI
@@ -9,14 +9,14 @@ namespace DapanzAI
     public class BTAgent : AgentBase
     {
         [Space]
-        //[FieldLabel("[配置]敌人行为")]
+        [FieldLabel("[配置]敌人行为")]
         public BTAgentData ebData;
-        //[FieldLabel("AI状态")]
+        [FieldLabel("AI状态")]
         public AIState m_AIState;
 
-        //[FieldLabel("AI文件")]
+        [FieldLabel("AI文件")]
         public ActionBase AIAction;
-        //[FieldLabel("检测频率")]
+        [FieldLabel("检测频率")]
         public float UpdateRate = 1;
 
         [HideInInspector]
