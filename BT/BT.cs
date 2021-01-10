@@ -266,6 +266,7 @@ namespace DapanzAI
         public ConditionalBranch(System.Func<bool> fn)
         {
             this.fn = fn;
+            flag = fn();
         }
         public ConditionalBranch(bool flag)
         {
@@ -275,7 +276,7 @@ namespace DapanzAI
         {
             if (!tested)
             {
-                tested = fn() || flag;
+                tested = flag;
             }
             if (tested)
             {
@@ -311,6 +312,7 @@ namespace DapanzAI
         public While(System.Func<bool> fn)
         {
             this.fn = fn;
+            flag = fn();
         }
 
         public While(bool flag) {
@@ -319,8 +321,10 @@ namespace DapanzAI
 
         public override BTState Tick()
         {
-            if (fn()|| flag)
+            if (flag)
+            {
                 base.Tick();
+            }
             else
             {
                 //if we exit the loop
