@@ -55,8 +55,10 @@ namespace DapanzAI
 
         protected override void UpdateInput()
         {
-
-            mainNode.Tick();
+            if(m_AIState!= AIState.shutdown)
+            {
+                mainNode.Tick();
+            }
         }
 
         /// <summary>
@@ -64,7 +66,7 @@ namespace DapanzAI
         /// </summary>
         public void ActiveAI()
         {
-            SetAIState(AIState.patrol);
+            SetAIState(AIState.sleep) ;
             mainNode = BT.Root().OpenBranch(
                 BT.While(isAlive).OpenBranch(AIAction.TryAction(this)),
                 BT.Terminate()
