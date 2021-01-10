@@ -28,7 +28,7 @@ namespace DapanzAI
         [HideInInspector]
         public float target_angle;
 
-        BTNode mainNode = BT.Root();
+        private Root mainNode = BT.Root();
 
         bool isAlive = true;
         Vector2 lockPosition;
@@ -67,8 +67,10 @@ namespace DapanzAI
         public void ActiveAI()
         {
             SetAIState(AIState.sleep) ;
-            mainNode = BT.Root().OpenBranch(
-                BT.While(isAlive).OpenBranch(AIAction.TryAction(this)),
+            _ = mainNode.OpenBranch(
+                BT.While(isAlive).OpenBranch(
+                    AIAction.TryAction(this)
+                ),
                 BT.Terminate()
             );
         }
