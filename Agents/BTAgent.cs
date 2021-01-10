@@ -64,7 +64,7 @@ namespace DapanzAI
         /// </summary>
         public void ActiveAI()
         {
-            m_AIState = AIState.sleep;
+            SetAIState(AIState.patrol);
             mainNode = BT.Root().OpenBranch(
                 BT.While(isAlive).OpenBranch(AIAction.TryAction(this)),
                 BT.Terminate()

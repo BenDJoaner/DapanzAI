@@ -66,8 +66,21 @@ namespace DapanzAI
     /// </summary>
     public enum AIState
     {
-        sleep,//休眠
-        patrol,//巡逻（非战斗状态）
+        /// <summary>
+        /// 关机状态，不进行BT.Tick，没有任何感知
+        /// </summary>
+        shutdown,
+        /// <summary>
+        /// 休眠状态，进行休眠的BT逻辑，对声音和受击有感知，但对玩家不造成伤害
+        /// </summary>
+        sleep,
+        /// <summary>
+        /// 巡逻状态，进行巡逻，对声音，可见区域的事件有感知
+        /// </summary>
+        patrol,
+        /// <summary>
+        /// 有且仅有一个目标，进行跟踪和攻击
+        /// </summary>
         battle,//战斗
     }
 
