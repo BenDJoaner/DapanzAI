@@ -45,6 +45,49 @@ public override BTNode TryAction(BTAgent behavier)
 {
     return base.TryAction(selfAction);
 }
+
+```
+### 举例：
+```
+
+using System;
+using DapanzAI;
+using UnityEngine;
+
+[CreateAssetMenu(order = 2, menuName = "行为/技能/普通攻击")]
+[Serializable]
+public class AttackOnce : ActionBase
+{
+    public float formerTime;
+    [FieldLabel("生效时间")]
+    public float effectTime;
+    [FieldLabel("结束时间")]
+    public float overTime;
+    public string attackTrigger = "attack";
+    public string waitForState = "Idle";
+    public string trackTrigger = "Idle";
+
+    public override BTNode TryAction(BTAgent behavier)
+    {
+        Animator anim = behavier.Anim;
+        selfAction = BT.Root().OpenBranch(
+            BT.If(behavier.CheckAttackRange).OpenBranch(
+                BT.Trigger(anim, attackTrigger),
+                BT.Wait(formerTime),
+                BT.Call(() => { behavier.DamangerEnable(true); }),
+                BT.Wait(effectTime),
+                BT.Call(()=> { behavier.DamangerEnable(false); }),
+                BT.Wait(overTime),
+                BT.WaitForAnimatorState(anim, waitForState)
+            ),
+            BT.Call(behavier.FaceToTarget),
+            BT.Call(behavier.TrackTarget),
+            BT.SetBool(anim, trackTrigger, true)
+
+        );
+        return base.TryAction(behavier);
+    }
+}
 ```
 ### 通用节点
 | 节点函数 | 类别 | 描述 |
