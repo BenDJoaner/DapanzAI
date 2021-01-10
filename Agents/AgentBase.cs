@@ -25,10 +25,8 @@ namespace DapanzAI
         [FieldLabel("碰到墙")]
         public Facing attachWall = Facing.none;
         [Header("左右/地面检查点偏移")]
-        [Range(0, -5)]
-        public float leftCheckOffset = 1;
         [Range(0, 5)]
-        public float rightCheckOffset = -1;
+        public float sideCheckOffset = 1;
         [Range(0, -5)]
         public float groundCheckOffset = -0.3f;
 
@@ -110,8 +108,8 @@ namespace DapanzAI
             rightChecker = Instantiate(new GameObject("rightChecker"), transform).transform;
             groundChecker = Instantiate(new GameObject("groundCheck"), transform).transform;
 
-            leftChecker.localPosition = new Vector2(leftCheckOffset, 0.5f);
-            rightChecker.localPosition = new Vector2(rightCheckOffset, 0.5f);
+            leftChecker.localPosition = new Vector2(-sideCheckOffset, 0.5f);
+            rightChecker.localPosition = new Vector2(sideCheckOffset, 0.5f);
             groundChecker.localPosition = new Vector2(0, groundCheckOffset);
 
             data = Init();
