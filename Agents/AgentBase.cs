@@ -8,27 +8,27 @@ namespace DapanzAI
     [RequireComponent(typeof(Collider2D))]
     public class AgentBase : MonoBehaviour
     {
-        [FieldLabel("基础行为状态")]
+        [EnumName("基础行为状态")]
         public ControlState state = ControlState.sleep;
-        [FieldLabel("重力生效")]
+        [ShowName("重力生效")]
         public bool updateGravity = true;
-        [FieldLabel("脚踩的东西")]
+        [EnumName("脚踩的东西")]
         public GroundType groundType;
-        [FieldLabel("角色模型")]
+        [ShowName("角色模型")]
         public Transform puppet = null;
-        [FieldLabel("手部位置")]
+        [ShowName("手部位置")]
         public Transform handAnchor = null;
-        [FieldLabel("自动面向")]
+        [EnumName("自动面向")]
         public Facing AutoFace = Facing.right;
-        [FieldLabel("强制面向")]
+        [EnumName("强制面向")]
         public Facing forceFace = Facing.none;
-        [FieldLabel("碰到墙")]
+        [EnumName("碰到墙")]
         public Facing attachWall = Facing.none;
         [Header("左右/地面检查点偏移")]
         [Range(0, 5)]
-        public float sideCheckOffset = 1;
+        [ShowName("两边检查点")] public float sideCheckOffset = 1;
         [Range(0, -5)]
-        public float groundCheckOffset = -0.3f;
+        [ShowName("地面检查点")] public float groundCheckOffset = -0.3f;
 
         LayerMask grassGroundMask;
         LayerMask rockGroundMask;
@@ -142,7 +142,7 @@ namespace DapanzAI
         /// <summary>
         /// 更新移动操作
         /// </summary>
-        void UpdateVelocity()
+        private void UpdateVelocity()
         {
             if (state == ControlState.awake)
             {
@@ -164,7 +164,7 @@ namespace DapanzAI
         /// <summary>
         /// 更新跳跃操作
         /// </summary>
-        void UpdateJump()
+        private void UpdateJump()
         {
             if (state == ControlState.awake)
             {

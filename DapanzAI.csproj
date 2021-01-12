@@ -31,7 +31,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\Memory%27s Journal\Assets\Library</OutputPath>
+    <OutputPath>bin\Debug</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -73,7 +73,6 @@
     <Compile Include="Data\AIConst.cs" />
     <Compile Include="Data\BTAgentData.cs" />
     <Compile Include="Editor\EnumNameAttribute.cs" />
-    <Compile Include="Editor\FieldLabelAttribute.cs" />
     <Compile Include="Editor\TitleAttribute.cs" />
     <Compile Include="Episode\EpisodeBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -9,14 +9,14 @@ namespace DapanzAI
     public class BTAgent : AgentBase
     {
         [Space]
-        [FieldLabel("[配置]敌人行为")]
+        [ShowName("[配置]敌人行为")]
         public BTAgentData ebData;
-        [FieldLabel("AI状态")]
+        [EnumName("AI状态")]
         public AIState m_AIState;
 
-        [FieldLabel("AI文件")]
+        [ShowName("AI文件")]
         public ActionBase AIAction;
-        [FieldLabel("检测频率")]
+        [ShowName("检测频率")]
         public float UpdateRate = 1;
 
         [HideInInspector]
@@ -66,7 +66,7 @@ namespace DapanzAI
         /// </summary>
         public void ActiveAI()
         {
-            SetAIState(AIState.sleep) ;
+            SetAIState(AIState.battle) ;
             _ = mainNode.OpenBranch(
                 BT.While(isAlive).OpenBranch(
                     AIAction.TryAction(this)
@@ -100,7 +100,7 @@ namespace DapanzAI
         /// 检测是否在攻击范围内
         /// </summary>
         /// <returns></returns>
-        public bool CheckAttackRange()
+        public virtual bool CheckAttackRange()
         {
             if (target)
             {
@@ -163,6 +163,8 @@ namespace DapanzAI
                 target_distance = dir.sqrMagnitude;
                 Vector3 testForward = Quaternion.Euler(0, 0, Mathf.Sign(Vector2.one.x) * ebData.viewDirection) * Vector2.one;
                 target_angle = Vector3.Angle(testForward, dir);
+
+                print("check >>>> " + target_distance + "/" + target_angle);
                 yield return new WaitForSeconds(UpdateRate);
             }
         }

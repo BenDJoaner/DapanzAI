@@ -9,10 +9,10 @@ using UnityEngine;
 
 //显示中文
 [AttributeUsage(AttributeTargets.Field)]
-public class InspectorShow : PropertyAttribute
+public class ShowName : PropertyAttribute
 {
     public string label;        //要显示的字符
-    public InspectorShow(string label)
+    public ShowName(string label)
     {
         this.label = label;
     }
@@ -42,18 +42,18 @@ public class TitleAttribute : PropertyAttribute
 
 //显示枚举名称
 [AttributeUsage(AttributeTargets.Field)]
-public class EnumNameAttribute : PropertyAttribute
+public class EnumName : PropertyAttribute
 {
     /// <summary> 枚举名称 </summary>
     public string name;
     public new int[] order = new int[0];
 
-    public EnumNameAttribute(string name)
+    public EnumName(string name)
     {
         this.name = name;
     }
 
-    public EnumNameAttribute(string label, params int[] order)
+    public EnumName(string label, params int[] order)
     {
         this.name = label;
         this.order = order;

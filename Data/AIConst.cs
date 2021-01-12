@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace DapanzAI
+﻿namespace DapanzAI
 {
     /// <summary>
     /// 接触地面类型
@@ -10,16 +6,16 @@ namespace DapanzAI
     /// </summary>
     public enum GroundType
     {
-        [EnumNameAttribute("在空中")]
-        Air,//在空中
-        [EnumNameAttribute("草地上")]
-        Grass,//草地上
-        [EnumNameAttribute("石头上")]
-        Rock,//石头上
-        [EnumNameAttribute("水面上")]
-        Water,//水上
-        [EnumNameAttribute("沙地上")]
-        Sand,//沙上
+        [EnumName("在空中")]
+        Air,
+        [EnumName("草地上")]
+        Grass,
+        [EnumName("石头上")]
+        Rock,
+        [EnumName("水面上")]
+        Water,
+        [EnumName("沙地上")]
+        Sand,
     }
 
     /// <summary>
@@ -27,10 +23,10 @@ namespace DapanzAI
     /// </summary>
     public enum ControlState
     {
-        [EnumNameAttribute("休眠")]
-        sleep,//休眠
-        [EnumNameAttribute("启动")]
-        awake//启动
+        [EnumName("休眠")]
+        sleep,
+        [EnumName("启动")]
+        awake
     }
 
     /// <summary>
@@ -38,11 +34,11 @@ namespace DapanzAI
     /// </summary>
     public enum Facing
     {
-        [EnumNameAttribute("无")]
-        none,//没有
-        [EnumNameAttribute("右")]
+        [EnumName("无")]
+        none,
+        [EnumName("右")]
         right,
-        [EnumNameAttribute("左")]
+        [EnumName("左")]
         left
     }
 
@@ -51,16 +47,16 @@ namespace DapanzAI
     /// </summary>
     public enum AttackDesire
     {
-        [EnumNameAttribute("胆小")]
-        cowardly,//胆小
-        [EnumNameAttribute("木头")]
-        woody,//木头
-        [EnumNameAttribute("小心")]
-        careful,//小心
-        [EnumNameAttribute("积极")]
-        positive,//积极
-        [EnumNameAttribute("疯狂")]
-        craze//疯狂
+        [EnumName("胆小")]
+        cowardly,
+        [EnumName("木头")]
+        woody,
+        [EnumName("小心")]
+        careful,
+        [EnumName("积极")]
+        positive,
+        [EnumName("疯狂")]
+        craze
     }
 
     /// <summary>
@@ -68,12 +64,18 @@ namespace DapanzAI
     /// </summary>
     public enum NioseLevel
     {
-        silent,//无声
-        whisper,//轻声
-        low,//小声
-        normal,//正常
-        loud,//大声
-        extreme,//超大声
+        [EnumName("无声")]
+        silent,
+        [EnumName("轻声")]
+        whisper,
+        [EnumName("小声")]
+        low,
+        [EnumName("正常")]
+        normal,
+        [EnumName("大声")]
+        loud,
+        [EnumName("超大声")]
+        extreme,
     }
 
     /// <summary>
@@ -84,19 +86,19 @@ namespace DapanzAI
         /// <summary>
         /// 关机状态，不进行BT.Tick，没有任何感知
         /// </summary>
-        shutdown,
+        [EnumName("关机")] shutdown,
         /// <summary>
         /// 休眠状态，进行休眠的BT逻辑，对声音和受击有感知，但对玩家不造成伤害
         /// </summary>
-        sleep,
+        [EnumName("睡觉")] sleep,
         /// <summary>
         /// 巡逻状态，进行巡逻，对声音，可见区域的事件有感知
         /// </summary>
-        patrol,
+        [EnumName("巡视")] patrol,
         /// <summary>
         /// 有且仅有一个目标，进行跟踪和攻击
         /// </summary>
-        battle,//战斗
+        [EnumName("战斗")] battle,//战斗
     }
 
     public static class AIConst
