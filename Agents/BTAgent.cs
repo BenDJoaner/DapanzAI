@@ -40,6 +40,7 @@ namespace DapanzAI
         public bool IsAlive {set => isAlive = value; }
         public virtual void DamangerEnable(bool flag) { }
         public virtual void TrackTarget() { }
+        public virtual void EndTrackTarget() { }
 
         protected override AgentData Init()
         {
