@@ -23,10 +23,12 @@ namespace DapanzAI
         public Transform target;
 
         [HideInInspector]
-        public float target_distance;
+        public float target_direct;
 
         [HideInInspector]
         public float target_angle;
+        [HideInInspector]
+        public float target_distance;
 
         private Root mainNode = BT.Root();
 
@@ -68,7 +70,7 @@ namespace DapanzAI
         {
             SetAIState(AIState.battle) ;
             _ = mainNode.OpenBranch(
-                BT.While(isAlive).OpenBranch(
+                BT.While(() => { return isAlive; }).OpenBranch(
                     AIAction.TryAction(this)
                 ),
                 BT.Terminate()
@@ -117,7 +119,7 @@ namespace DapanzAI
         /// </summary>
         public void ScanForTarget()
         {
-            if (target_distance > ebData.sight * ebData.viewDirection)
+            if (target_direct > ebData.sight * ebData.viewDirection)
             {
                 SetAIState(AIState.patrol);
                 return;
@@ -160,11 +162,11 @@ namespace DapanzAI
             while (Pretarget != null)
             {
                 Vector3 dir = Pretarget.position - transform.position;
-                target_distance = dir.sqrMagnitude;
+                target_direct = dir.sqrMagnitude;
                 Vector3 testForward = Quaternion.Euler(0, 0, Mathf.Sign(Vector2.one.x) * ebData.viewDirection) * Vector2.one;
                 target_angle = Vector3.Angle(testForward, dir);
-
-                print("check >>>> " + target_distance + "/" + target_angle);
+                target_distance = Vector2.Distance(Pretarget.position, transform.position);
+                //print("check >>>> " + target_direct + "/" + target_angle+"/"+ target_distance);
                 yield return new WaitForSeconds(UpdateRate);
             }
         }

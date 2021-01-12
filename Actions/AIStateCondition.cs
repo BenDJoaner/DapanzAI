@@ -7,8 +7,11 @@ namespace DapanzAI.Actions
     [Serializable]
     public class AIStateCondition:ActionBase
     {
+        [ShowName("睡眠时行为")]
         public ActionBase[] sleepActionList;
+        [ShowName("巡视时行为")]
         public ActionBase[] patrolActionList;
+        [ShowName("战斗时行为")]
         public ActionBase[] battleActionList;
 
         BTNode[] _sleep_node_list;
@@ -38,14 +41,14 @@ namespace DapanzAI.Actions
             }
 
             selfAction = BT.Root().OpenBranch(
-                BT.If(behavier.m_AIState == AIState.sleep).OpenBranch(
-                    BT.While(behavier.m_AIState == AIState.sleep).OpenBranch(_sleep_node_list)
+                BT.If(()=> { return behavier.m_AIState == AIState.sleep; }).OpenBranch(
+                    _sleep_node_list
                 ),
-                BT.If(behavier.m_AIState == AIState.patrol).OpenBranch(
-                    BT.While(behavier.m_AIState == AIState.patrol).OpenBranch(_patrol_node_list)
+                BT.If(()=> { return behavier.m_AIState == AIState.patrol; }).OpenBranch(
+                    _patrol_node_list
                 ),
-                BT.If(behavier.m_AIState == AIState.battle).OpenBranch(
-                    BT.While(behavier.m_AIState == AIState.battle).OpenBranch(_battle_node_list)
+                BT.If(() => { return behavier.m_AIState == AIState.battle; }).OpenBranch(
+                    _battle_node_list
                 )
             );
             return base.TryAction(behavier);

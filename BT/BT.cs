@@ -38,9 +38,7 @@ namespace DapanzAI
         public static Action RunCoroutine(System.Func<IEnumerator<BTState>> coroutine) { return new Action(coroutine); }
         public static Action Call(System.Action fn) { return new Action(fn); }
         public static ConditionalBranch If(System.Func<bool> fn) { return new ConditionalBranch(fn); }
-        public static ConditionalBranch If(bool flag) { return new ConditionalBranch(flag); }
         public static While While(System.Func<bool> fn) { return new While(fn); }
-        public static While While(bool flag) { return new While(flag); }
         public static Condition Condition(System.Func<bool> fn) { return new Condition(fn); }
         public static Repeat Repeat(int count) { return new Repeat(count); }
         public static Wait Wait(float seconds) { return new Wait(seconds); }
@@ -261,22 +259,16 @@ namespace DapanzAI
     public class ConditionalBranch : Block
     {
         public System.Func<bool> fn;
-        public bool flag;
         bool tested = false;
         public ConditionalBranch(System.Func<bool> fn)
         {
             this.fn = fn;
-            flag = fn();
-        }
-        public ConditionalBranch(bool flag)
-        {
-            this.flag = flag;
         }
         public override BTState Tick()
         {
             if (!tested)
             {
-                tested = flag;
+                tested = fn();
             }
             if (tested)
             {
@@ -307,24 +299,16 @@ namespace DapanzAI
     public class While : Block
     {
         public System.Func<bool> fn;
-        public bool flag;
 
         public While(System.Func<bool> fn)
         {
             this.fn = fn;
-            flag = fn();
-        }
-
-        public While(bool flag) {
-            this.flag = flag;
         }
 
         public override BTState Tick()
         {
-            if (flag)
-            {
+            if (fn())
                 base.Tick();
-            }
             else
             {
                 //if we exit the loop

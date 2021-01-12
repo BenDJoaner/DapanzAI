@@ -16,7 +16,7 @@ namespace DapanzAI.Actions
                 ActionBase _action = (ActionBase)actionList[i];
                 nodeList[i] = _action.TryAction(behavier);
             }
-            selfAction = BT.Root().OpenBranch(nodeList);
+            selfAction = BT.Sequence().OpenBranch(nodeList);
             return base.TryAction(behavier);
         }
     }
