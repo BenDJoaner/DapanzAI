@@ -1,8 +1,10 @@
 # DapanzAI Tools(2D)
 
-> 这是一个在《记忆岛》中分离出来的功能，整合了行为树、移动控制器、行为控制器、Inspector参数重命名...
+> Modified By Unity Official 2D Game Kit Demo
+> 基于Unity官方示例工程 2D Game kit修改
 
 **简述:**
+  - 这是一个在《记忆岛》中分离出来的功能，整合了行为树、移动控制器、行为控制器、Inspector参数重命名...
   - 可以提供一套方块快捷建立AI敌人、队友和操作人物角色的简单逻辑
   - 生成Asset文件，进行组件赋值，方面给美术和策划同学编辑敌人的AI行为
 
