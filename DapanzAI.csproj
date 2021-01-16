@@ -72,7 +72,9 @@
     <Compile Include="Data\AgentData.cs" />
     <Compile Include="Data\AIConst.cs" />
     <Compile Include="Data\BTAgentData.cs" />
+    <Compile Include="Editor\EnumNameAttribute.cs" />
     <Compile Include="Editor\FieldLabelAttribute.cs" />
+    <Compile Include="Editor\TitleAttribute.cs" />
     <Compile Include="Episode\EpisodeBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BT\SendSignal.cs" />

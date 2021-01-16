@@ -3,7 +3,9 @@
 using System;
 using UnityEditor;
 using UnityEngine;
+/// <summary>
 /// 能让字段在inspect面板显示中文字符
+/// </summary>
 [AttributeUsage(AttributeTargets.Field)]
 public class FieldLabelAttribute : PropertyAttribute
 {

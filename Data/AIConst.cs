@@ -10,10 +10,15 @@ namespace DapanzAI
     /// </summary>
     public enum GroundType
     {
+        [EnumNameAttribute("在空中")]
         Air,//在空中
+        [EnumNameAttribute("草地上")]
         Grass,//草地上
+        [EnumNameAttribute("石头上")]
         Rock,//石头上
+        [EnumNameAttribute("水面上")]
         Water,//水上
+        [EnumNameAttribute("沙地上")]
         Sand,//沙上
     }
 
@@ -22,7 +27,9 @@ namespace DapanzAI
     /// </summary>
     public enum ControlState
     {
+        [EnumNameAttribute("休眠")]
         sleep,//休眠
+        [EnumNameAttribute("启动")]
         awake//启动
     }
 
@@ -31,8 +38,11 @@ namespace DapanzAI
     /// </summary>
     public enum Facing
     {
+        [EnumNameAttribute("无")]
         none,//没有
+        [EnumNameAttribute("右")]
         right,
+        [EnumNameAttribute("左")]
         left
     }
 
@@ -41,10 +51,15 @@ namespace DapanzAI
     /// </summary>
     public enum AttackDesire
     {
+        [EnumNameAttribute("胆小")]
         cowardly,//胆小
+        [EnumNameAttribute("木头")]
         woody,//木头
+        [EnumNameAttribute("小心")]
         careful,//小心
+        [EnumNameAttribute("积极")]
         positive,//积极
+        [EnumNameAttribute("疯狂")]
         craze//疯狂
     }
 
