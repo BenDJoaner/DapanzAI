@@ -1,4 +1,4 @@
-# DapanzAI 大片紫AI工具（2D）
+# DapanzAI Tools(2D)
 
 > 这是一个在《记忆岛》中分离出来的功能，整合了行为树、移动控制器、行为控制器、Inspector参数重命名...
 
