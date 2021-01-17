@@ -79,7 +79,7 @@ namespace DapanzAI
                 m_LastHit = m_AttackOverlapResults[i];
                 Damageable damageable = m_LastHit.GetComponent<Damageable>();
 
-                if (damageable && damageable.CurrentHealth > 0 && !damageable.IsInvulerable())
+                if (damageable && damageable.CurrentHealth > 0)
                 {
                     OnDamageableHit.Invoke(this, damageable);
                     damageable.TakeDamage(this, ignoreInvincibility);

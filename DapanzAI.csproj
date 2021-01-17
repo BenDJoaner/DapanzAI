@@ -84,6 +84,7 @@
     <Compile Include="BT\SendSignal.cs" />
     <Compile Include="Property\Damageable.cs" />
     <Compile Include="Property\Damager.cs" />
+    <Compile Include="Actions\EmptyAction.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />

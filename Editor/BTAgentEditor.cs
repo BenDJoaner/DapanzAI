@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEditor;
-using UnityEditor.IMGUI.Controls;
-using UnityEngine;
+﻿using UnityEditor;
 namespace DapanzAI
 {
-[CustomEditor(typeof(BTAgent)), CanEditMultipleObjects]
+    [CustomEditor(typeof(BTAgent)), CanEditMultipleObjects]
     public class BTAgentEditor : Editor
     {
         /*

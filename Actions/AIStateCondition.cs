@@ -41,6 +41,7 @@ namespace DapanzAI.Actions
             }
 
             selfAction = BT.Root().OpenBranch(
+                BT.Call(behavier.ScanForTarget),
                 BT.If(()=> { return behavier.m_AIState == AIState.sleep; }).OpenBranch(
                     _sleep_node_list
                 ),
