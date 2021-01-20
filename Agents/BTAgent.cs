@@ -143,7 +143,7 @@ namespace DapanzAI
         }
 
         public void FaceToTarget() {
-            if(target.position.x - transform.position.x > 0)
+            if (target.position.x - transform.position.x > 0)
             {
                 forceFace = Facing.right;
             }
@@ -173,7 +173,8 @@ namespace DapanzAI
             {
                 Vector3 dir = Pretarget.position - transform.position;
                 target_direct = dir.sqrMagnitude;
-                Vector3 testForward = Quaternion.Euler(0, 0, Mathf.Sign(Vector2.one.x) * ebData.viewDirection) * Vector2.one;
+                Vector2 curDire = AutoFace == Facing.right ? Vector2.right : Vector2.left;
+                Vector3 testForward = Quaternion.Euler(0, 0, Mathf.Sign(curDire.x) * ebData.viewDirection) * curDire;
                 target_angle = Vector3.Angle(testForward, dir);
                 target_distance = Vector2.Distance(Pretarget.position, transform.position);
                 //print("check >>>> " + target_direct + "/" + target_angle+"/"+ target_distance);
