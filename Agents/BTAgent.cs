@@ -128,7 +128,7 @@ namespace DapanzAI
         /// </summary>
         public void ScanForTarget()
         {
-            Debug.Log(target_direct + ">" + ebData.sight * ebData.viewDirection + " / " + target_angle + ">" + (ebData.viewFov * 0.5f));
+            //Debug.Log(target_direct + ">" + ebData.sight * ebData.viewDirection + " / " + target_angle + ">" + (ebData.viewFov * 0.5f));
             if (target_direct > ebData.sight * ebData.viewDirection)
             {
                 SetAIState(AIState.patrol);

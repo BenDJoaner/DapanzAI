@@ -22,29 +22,29 @@ namespace DapanzAI.Actions
             _sleep_node_list = new BTNode[sleepActionList.Length];
             for (int i = 0; i < sleepActionList.Length; i++)
             {
-                ActionBase _action = (ActionBase)sleepActionList[i];
+                ActionBase _action = sleepActionList[i];
                 _sleep_node_list[i] = _action.TryAction(behavier);
             }
 
             _patrol_node_list = new BTNode[patrolActionList.Length];
             for (int i = 0; i < patrolActionList.Length; i++)
             {
-                ActionBase _action = (ActionBase)patrolActionList[i];
+                ActionBase _action = patrolActionList[i];
                 _patrol_node_list[i] = _action.TryAction(behavier);
             }
 
             _battle_node_list = new BTNode[battleActionList.Length];
             for (int i = 0; i < battleActionList.Length; i++)
             {
-                ActionBase _action = (ActionBase)battleActionList[i];
+                ActionBase _action = battleActionList[i];
                 _battle_node_list[i] = _action.TryAction(behavier);
             }
 
             selfAction = BT.Root().OpenBranch(
-                BT.If(()=> { return behavier.m_AIState == AIState.sleep; }).OpenBranch(
+                BT.If(() => { return behavier.m_AIState == AIState.sleep; }).OpenBranch(
                     _sleep_node_list
                 ),
-                BT.If(()=> { return behavier.m_AIState == AIState.patrol; }).OpenBranch(
+                BT.If(() => { return behavier.m_AIState == AIState.patrol; }).OpenBranch(
                     _patrol_node_list
                 ),
                 BT.If(() => { return behavier.m_AIState == AIState.battle; }).OpenBranch(
