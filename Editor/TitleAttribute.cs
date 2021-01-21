@@ -7,8 +7,8 @@
 using System;
 using UnityEngine;
 
-namespace DapanzAI
-{
+//namespace DapanzAI
+//{
     //显示中文
     [AttributeUsage(AttributeTargets.Field)]
     public class ShowName : PropertyAttribute
@@ -68,4 +68,4 @@ namespace DapanzAI
             this.isFlag = isFlag;
         }
     }
-}
+//}
