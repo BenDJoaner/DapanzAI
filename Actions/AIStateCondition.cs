@@ -7,11 +7,11 @@ namespace DapanzAI.Actions
     [Serializable]
     public class AIStateCondition:ActionBase
     {
-        [ShowName("睡眠时行为")]
+        [Header("睡眠时行为")]
         public ActionBase[] sleepActionList;
-        [ShowName("巡视时行为")]
+        [Header("巡视时行为")]
         public ActionBase[] patrolActionList;
-        [ShowName("战斗时行为")]
+        [Header("战斗时行为")]
         public ActionBase[] battleActionList;
 
         BTNode[] _sleep_node_list;

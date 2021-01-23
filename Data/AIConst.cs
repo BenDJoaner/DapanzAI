@@ -84,19 +84,19 @@
     public enum AIState
     {
         /// <summary>
-        /// 关机状态，不进行BT.Tick，没有任何感知
+        /// 关机状态，不进行BT.Tick，没有任何感知，无碰撞伤害
         /// </summary>
         [EnumName("关机")] shutdown,
         /// <summary>
-        /// 休眠状态，进行休眠的BT逻辑，对声音和受击有感知，但对玩家不造成伤害
+        /// 休眠状态，进行休眠的BT逻辑，对声音和受击有感知，无碰撞伤害
         /// </summary>
         [EnumName("睡觉")] sleep,
         /// <summary>
-        /// 巡逻状态，进行巡逻，对声音，可见区域的事件有感知
+        /// 巡逻状态，进行巡逻，对声音，可见区域的事件有感知，有碰撞伤害
         /// </summary>
         [EnumName("巡视")] patrol,
         /// <summary>
-        /// 有且仅有一个目标，进行跟踪和攻击
+        /// 有且仅有一个目标，进行跟踪和攻击，有碰撞伤害
         /// </summary>
         [EnumName("战斗")] battle,//战斗
     }
