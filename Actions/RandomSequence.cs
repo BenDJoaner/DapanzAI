@@ -3,7 +3,7 @@
 namespace DapanzAI.Actions
 {
     [CreateAssetMenu(order = 3, menuName = "行为/控制节点/随机执行", fileName = "随机执行")]
-    class RandomSequence:ActionBase
+    public class RandomSequence:ActionBase
     {
         [ShowName("行为")]
         public ActionBase[] actionList;
