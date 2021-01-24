@@ -32,7 +32,7 @@ namespace DapanzAI
         public bool disableOnDeath = false;
         [ShowName("攻击后恢复能量")]
         public int canIncreaseEnegy = 1;
-        [Tooltip("An offset from the obejct position used to set from where the distance to the damager is computed")]
+        [Tooltip("与物体位置的偏移量，该偏移量用于设置计算到损坏的距离的位置")]
         public Vector2 centreOffset = new Vector2(0f, 1f);
         public HealthEvent OnHealthSet;
         public DamageEvent OnTakeDamage;
@@ -46,14 +46,9 @@ namespace DapanzAI
         protected Vector2 m_DamageDirection;
         protected bool m_ResetHealthOnSceneReload;
 
-        public int CurrentHealth
-        {
-            get { return m_CurrentHealth; }
-        }
+        public int CurrentHealth => m_CurrentHealth;
 
-        public bool IsInvulerable(){
-            return m_Invulnerable;
-        }
+        public bool IsInvulerable => m_Invulnerable;
 
 
         private void Start()
@@ -82,7 +77,7 @@ namespace DapanzAI
         public void EnableInvulnerability(bool ignoreTimer = false)
         {
             m_Invulnerable = true;
-            //technically don't ignore timer, just set it to an insanly big number. Allow to avoid to add more test & special case.
+            //从技术上讲，不要忽略计时器，只需将其设置为一个很大的数字即可。 允许避免添加更多测试和特殊情况。
             m_InulnerabilityTimer = ignoreTimer ? float.MaxValue : invulnerabilityDuration;
         }
 
