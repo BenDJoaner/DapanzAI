@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-namespace ToolSpace
+namespace DapanzAI
 {
     [CustomEditor(typeof(Damageable))]
     public class DamageableEditor

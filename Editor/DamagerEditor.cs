@@ -2,7 +2,7 @@
 using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 
-namespace ToolSpace
+namespace DapanzAI
 {
     [CustomEditor(typeof(Damager))]
     public class DamagerEditor : Editor

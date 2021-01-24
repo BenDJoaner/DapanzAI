@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace ToolSpace
+namespace DapanzAI
 {
     public class Damager : MonoBehaviour
     {
