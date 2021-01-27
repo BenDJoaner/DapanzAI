@@ -85,6 +85,8 @@
     <Compile Include="Property\Damageable.cs" />
     <Compile Include="Property\Damager.cs" />
     <Compile Include="Actions\EmptyAction.cs" />
+    <Compile Include="Property\PropertyBase.cs" />
+    <Compile Include="Property\ScriptableTarget.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
