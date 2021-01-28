@@ -53,6 +53,8 @@
         woody,
         [EnumName("小心")]
         careful,
+        [EnumName("正常")]
+        normal,
         [EnumName("积极")]
         positive,
         [EnumName("疯狂")]
@@ -106,5 +108,20 @@
         //地面检测相关
         public static float k_GroundedRadius = 0.2f;     //地面检测半径
         public static float k_WallRadius = .05f;        //墙壁检测半径
+
+        /// <summary>
+        /// 难度系数
+        /// {[0]=前摇，[1]=攻击持续，[2]=后摇, [3]=速度，[4]=优势距离}
+        /// </summary>
+        public static float[,] AttackDesireDetail ={
+            {5,         0.1f,       5,          -1          },//胆小
+            {2,         0.5f,       2,          0.2f        },//木头
+            {1.5f,      0.6f,       1.2f,       0.5f        },//小心
+            {1,         1,          1,             1         },//正常
+            {0.7f,     1,           0.6f,      1.5f         },//积极
+            {0.5f,     1.5f,        0.4f,       2           }//疯狂
+        };
     }
+
+
 }

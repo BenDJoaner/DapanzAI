@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("DapanzAI")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Dapanz")]
 [assembly: AssemblyProduct("DapanzAI")]
 [assembly: AssemblyCopyright("Copyright © Dapanz 2021")]
 [assembly: AssemblyTrademark("")]
