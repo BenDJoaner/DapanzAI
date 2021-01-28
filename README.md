@@ -36,7 +36,7 @@
 ## Actions 行为节点/Action Nodes
 ### ActionBase 为节点基类
 可以继承此类来创造新需要的节点，并且互相合并
-```
+```csharp
 /*
  * 赋值该参数
  * selfAction = BT.Root().OpenBranch();
@@ -50,7 +50,7 @@ public override BTNode TryAction(BTAgent behavier)
 
 ```
 ### 举例：
-```
+```csharp
 
 using System;
 using DapanzAI;
