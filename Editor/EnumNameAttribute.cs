@@ -12,12 +12,12 @@ using UnityEngine;
 //namespace DapanzAI
 //{
 //将属性名显示成中文
-[CustomPropertyDrawer(typeof(ShowName))]
+[CustomPropertyDrawer(typeof(ParamName))]
 public class FieldLabelDrawer : PropertyDrawer
 {
-    private ShowName FLAttribute
+    private ParamName FLAttribute
     {
-        get { return (ShowName)attribute; }
+        get { return (ParamName)attribute; }
         //获取你想要绘制的字段
     }
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)

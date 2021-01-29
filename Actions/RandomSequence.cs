@@ -5,9 +5,9 @@ namespace DapanzAI.Actions
     [CreateAssetMenu(order = 3, menuName = "行为/控制节点/随机执行", fileName = "随机执行")]
     public class RandomSequence:ActionBase
     {
-        [ShowName("行为")]
+        [ParamName("行为")]
         public ActionBase[] actionList;
-        [ShowName("权重")]
+        [ParamName("权重")]
         public int[] weights;
         public override BTNode TryAction(BTAgent behavier)
         {

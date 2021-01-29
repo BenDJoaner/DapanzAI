@@ -16,6 +16,46 @@
         Water,
         [EnumName("沙地上")]
         Sand,
+        [EnumName("在冰上")]
+        Ice,
+    }
+
+    /// <summary>
+    /// 攻击欲望系数
+    /// </summary>
+    public enum DesierItem {
+        /// <summary>
+        /// 感知范围
+        /// </summary>
+        Sense,
+        /// <summary>
+        /// 攻击前摇
+        /// </summary>
+        PreAttack,
+        /// <summary>
+        /// 攻击持续时间
+        /// </summary>
+        CtnAttack,
+        /// <summary>
+        /// 攻击后摇
+        /// </summary>
+        AftAttack,
+        /// <summary>
+        /// 移动速度
+        /// </summary>
+        MoveSpeed,
+        /// <summary>
+        /// 优势位置
+        /// </summary>
+        IntrestPos,
+        /// <summary>
+        /// 丢失目标时间
+        /// </summary>
+        LostTarget,
+        /// <summary>
+        /// 伤害百分比
+        /// </summary>
+        damagerPct
     }
 
     /// <summary>
@@ -105,21 +145,30 @@
 
     public static class AIConst
     {
-        //地面检测相关
-        public static float k_GroundedRadius = 0.2f;     //地面检测半径
-        public static float k_WallRadius = .05f;        //墙壁检测半径
-
+        /// <summary>
+        /// 地面检测半径
+        /// </summary>
+        public static float k_GroundedRadius = 0.2f; 
+        /// <summary>
+        /// 墙壁检测半径
+        /// </summary>
+        public static float k_WallRadius = .05f;
+        /// <summary>
+        /// 在不同材质上行走速度
+        /// </summary>
+        public static float[] WalkSpeedPct = {0.8f,1,1,0.5f,0.8f};
         /// <summary>
         /// 难度系数
-        /// {[0]=前摇，[1]=攻击持续，[2]=后摇, [3]=速度，[4]=优势距离}
+        /// {[0]=感知，[1]=前摇，[2]=攻击持续, [3]=后摇，[4]=速度，[5]=优势距离}
         /// </summary>
         public static float[,] AttackDesireDetail ={
-            {5,         0.1f,       5,          -1          },//胆小
-            {2,         0.5f,       2,          0.2f        },//木头
-            {1.5f,      0.6f,       1.2f,       0.5f        },//小心
-            {1,         1,          1,             1         },//正常
-            {0.7f,     1,           0.6f,      1.5f         },//积极
-            {0.5f,     1.5f,        0.4f,       2           }//疯狂
+        //      感知      前摇          攻击持续      后摇            速度        优势距离         丢失目标         伤害比值
+            {0,         5,         0.1f,        1.7f,          -1,          999,           0.1f,          1         },//胆小
+            {0.5f,      2,         0.5f,        1.5f,          0.3f,        2f,            0.3f,          1          },//木头
+            {0.7f,    1.5f,        0.6f,        1.2f,          0.7f,        1.5f,            0.7f,          1         },//小心
+            {1,         1,           1,          1,              1,           1,               1,             1             },//正常
+            {1.5f,     0.7f,         1,         0.8f,          1.5f,        0.5f,            1.2f,          2          },//积极
+            {2f,       0.5f,        1.5f,       0.6f,          2,           0.2f,            1.5f,          4          }//疯狂
         };
     }
 

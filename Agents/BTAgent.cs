@@ -9,14 +9,16 @@ namespace DapanzAI
     public class BTAgent : AgentBase
     {
         [Space]
-        [ShowName("[配置]敌人行为")]
+        [ParamName("[配置]敌人行为")]
         public BTAgentData ebData;
         [EnumName("AI状态")]
         public AIState m_AIState;
+        [EnumName("攻击欲望")]
+        public AttackDesire desire;
 
-        [ShowName("AI文件")]
+        [ParamName("AI文件")]
         public ActionBase AIAction;
-        [ShowName("检测频率")]
+        [ParamName("检测频率")]
         public float UpdateRate = 1;
 
         [HideInInspector]

@@ -17,13 +17,13 @@ namespace DapanzAI
         public class HealEvent : UnityEvent<int, Damageable>
         { }
 
-        [ShowName("设置生命值")]
+        [ParamName("设置生命值")]
         public HealthEvent OnHealthSet;
-        [ShowName("受到伤害")]
+        [ParamName("受到伤害")]
         public DamageEvent OnTakeDamage;
-        [ShowName("死亡")]
+        [ParamName("死亡")]
         public DamageEvent OnDead;
-        [ShowName("获得治疗")]
+        [ParamName("获得治疗")]
         public HealEvent OnGainHealth;
 
         protected override void Init()

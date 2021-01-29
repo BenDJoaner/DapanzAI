@@ -18,18 +18,18 @@ namespace DapanzAI
         //call that from inside the onDamageableHIt or OnNonDamageableHit to get what was hit.
         public Collider2D LastHit { get { return m_LastHit; } }
 
-        [ShowName("伤害值")]
+        [ParamName("伤害值")]
         public int damage = 1;
         [Header("调整攻击效果范围")]
-        [ShowName("坐标偏移")]
+        [ParamName("坐标偏移")]
         public Vector2 offset = new Vector2(1.5f, 1f);
-        [ShowName("大小缩放")]
+        [ParamName("大小缩放")]
         public Vector2 size = new Vector2(2.5f, 1f);
         public bool disableDamageAfterHit = false;
         [Tooltip("如果开启，当攻击一个无敌的damageble的时候，依然会触发OnhHt()，不过不会扣血")]
-        [ShowName("忽视无敌状态")]
+        [ParamName("忽视无敌状态")]
         public bool ignoreInvincibility = false;
-        [ShowName("可以伤害的Layer")]
+        [ParamName("可以伤害的Layer")]
         public LayerMask hittableLayers;
         public DamagableEvent OnDamageableHit;
         public NonDamagableEvent OnNonDamageableHit;

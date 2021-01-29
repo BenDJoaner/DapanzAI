@@ -8,17 +8,17 @@ namespace DapanzAI
     {
 
 
-        [ShowName("初始生命值")]
+        [ParamName("最大生命值")]
         public int startingHealth = 5;
-        [ShowName("受伤后无敌")]
+        [ParamName("受伤后无敌")]
         public bool invulnerableAfterDamage = true;
-        [ShowName("无敌时间")]
+        [ParamName("无敌时间")]
         public float invulnerabilityDuration = 3f;
 
         protected bool m_Invulnerable;
         protected float m_InulnerabilityTimer;
+        [SerializeField]
         protected int m_CurrentHealth;
-        protected Vector2 m_DamageDirection;
         protected bool m_ResetHealthOnSceneReload;//重置场景时候需要初始化标记，用于对象池回收
 
         public int CurrentHealth => m_CurrentHealth;
