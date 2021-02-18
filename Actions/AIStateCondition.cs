@@ -38,9 +38,15 @@ namespace DapanzAI.Actions
             }
 
             selfAction = BT.Root().OpenBranch(
-                BT.While(behavier.m_AIState == AIState.sleep).OpenBranch(_sleep_node_list),
-                BT.While(behavier.m_AIState == AIState.patrol).OpenBranch(_patrol_node_list),
-                BT.While(behavier.m_AIState == AIState.battle).OpenBranch(_battle_node_list)
+                BT.If(behavier.m_AIState == AIState.sleep).OpenBranch(
+                    BT.While(behavier.m_AIState == AIState.sleep).OpenBranch(_sleep_node_list)
+                ),
+                BT.If(behavier.m_AIState == AIState.patrol).OpenBranch(
+                    BT.While(behavier.m_AIState == AIState.patrol).OpenBranch(_patrol_node_list)
+                ),
+                BT.If(behavier.m_AIState == AIState.battle).OpenBranch(
+                    BT.While(behavier.m_AIState == AIState.battle).OpenBranch(_battle_node_list)
+                )
             );
             return base.TryAction(behavier);
         }

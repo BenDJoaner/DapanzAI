@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace DapanzAI.Actions
 {
-    [CreateAssetMenu(order = 2, menuName = "行为/控制节点/按顺序执行",fileName ="循序执行")]
+    [CreateAssetMenu(order = 2, menuName = "行为/控制节点/循环执行序列",fileName ="循序执行")]
     [Serializable]
     public class LoopSequence:ActionBase
     {
