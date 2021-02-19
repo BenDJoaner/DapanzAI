@@ -11,10 +11,10 @@ using UnityEngine;
 //{
     //显示中文
     [AttributeUsage(AttributeTargets.Field)]
-    public class ParamName : PropertyAttribute
+    public class Name : PropertyAttribute
     {
         public string label;        //要显示的字符
-        public ParamName(string label)
+        public Name(string label)
         {
             this.label = label;
         }

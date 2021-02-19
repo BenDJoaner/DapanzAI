@@ -10,13 +10,13 @@ namespace DapanzAI
     {
         [EnumName("基础行为状态")]
         public ControlState state = ControlState.sleep;
-        [ParamName("重力生效")]
+        [Name("重力生效")]
         public bool updateGravity = true;
         [EnumName("脚踩的东西")]
         public GroundType groundType;
-        [ParamName("角色模型")]
+        [Name("角色模型")]
         public Transform puppet = null;
-        [ParamName("手部位置")]
+        [Name("手部位置")]
         public Transform handAnchor = null;
         [EnumName("自动面向")]
         public Facing AutoFace = Facing.right;
@@ -26,9 +26,9 @@ namespace DapanzAI
         public Facing attachWall = Facing.none;
         [Header("左右/地面检查点偏移")]
         [Range(0, 5)]
-        [ParamName("两边检查点")] public float sideCheckOffset = 1;
+        [Name("两边检查点")] public float sideCheckOffset = 1;
         [Range(0, -5)]
-        [ParamName("地面检查点")] public float groundCheckOffset = -0.3f;
+        [Name("地面检查点")] public float groundCheckOffset = -0.3f;
 
         LayerMask grassGroundMask;
         LayerMask rockGroundMask;

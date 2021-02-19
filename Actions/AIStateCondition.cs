@@ -13,10 +13,9 @@ namespace DapanzAI.Actions
         public ActionBase[] patrolActionList;
         [Header("战斗时行为")]
         public ActionBase[] battleActionList;
-
-        BTNode[] _sleep_node_list;
-        BTNode[] _patrol_node_list;
-        BTNode[] _battle_node_list;
+        private BTNode[] _sleep_node_list;
+        private BTNode[] _patrol_node_list;
+        private BTNode[] _battle_node_list;
         public override BTNode TryAction(BTAgent behavier)
         {
             _sleep_node_list = new BTNode[sleepActionList.Length];

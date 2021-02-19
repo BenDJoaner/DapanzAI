@@ -7,9 +7,9 @@ namespace DapanzAI.Actions
     [Serializable]
     public class RepeatNTimes : ActionBase
     {
-        [ParamName("次数")]
+        [Name("次数")]
         public int Times;
-        [ParamName("行为")]
+        [Name("行为")]
         public ActionBase[] actionList;
         public override BTNode TryAction(BTAgent behavier)
         {
