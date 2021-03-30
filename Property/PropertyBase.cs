@@ -15,7 +15,6 @@ namespace DapanzAI
             pAnim = GetComponentInChildren<Animator>();
             playerSprite = GetComponentInChildren<SpriteRenderer>();
             m_OriginalColor = playerSprite.color;
-            pAnim.SetTrigger("dead");
         }
 
         protected override void OnGetHit(Damager damager)

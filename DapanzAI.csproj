@@ -90,6 +90,9 @@
     <Compile Include="Actions\EmptyAction.cs" />
     <Compile Include="Property\PropertyBase.cs" />
     <Compile Include="Property\ScriptableTarget.cs" />
+    <Compile Include="UI\UIAssetsConfig.cs" />
+    <Compile Include="UI\UIbase.cs" />
+    <Compile Include="UI\UIManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
