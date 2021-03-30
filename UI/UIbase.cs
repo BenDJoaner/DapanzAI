@@ -13,6 +13,5 @@ namespace DapanzAI.UI
         public virtual void OnShow() { }
         public virtual void OnClose() { }
         public virtual void OnHide() { }
-        public virtual void Resume() { }
     }
 }

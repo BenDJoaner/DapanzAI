@@ -45,7 +45,7 @@ namespace DapanzAI.UI
             if (ui)
             {
                 ui.gameObject.SetActive(true);
-                ui.Resume();
+                ui.OnShow();
             }
             else
             {
