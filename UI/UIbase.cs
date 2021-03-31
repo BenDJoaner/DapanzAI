@@ -8,13 +8,11 @@ using UnityEngine.Rendering;
 
 namespace DapanzAI.UI
 {
-    public interface IUIBase
-    {
-
-    }
     public class UIbase:MonoBehaviour
     {
-        public virtual void OnShow(){}
-        public virtual void OnClose(){}
+        public virtual void OnShow() { }
+        public virtual void OnClose() { }
+        public virtual void OnHide() { }
+        public virtual void Resume() { }
     }
 }
