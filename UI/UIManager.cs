@@ -39,6 +39,11 @@ namespace DapanzAI.UI
             }
         }
 
+        /// <summary>
+        /// 展示窗口
+        /// </summary>
+        /// <param name="_name">窗口名字</param>
+        /// <param name="_layer">层级，默认Mesh层</param>
         public void ShowModule(string _name, CavansLayer _layer = CavansLayer.MESH)
         {
             uiOpened.TryGetValue(_name, out UIbase ui);
@@ -65,6 +70,10 @@ namespace DapanzAI.UI
             }
         }
 
+        /// <summary>
+        /// 卸载窗口
+        /// </summary>
+        /// <param name="_name">窗口名</param>
         public void UnloadModule(string _name)
         {
             uiOpened.TryGetValue(_name, out UIbase ui);
@@ -80,6 +89,10 @@ namespace DapanzAI.UI
             }
         }
 
+        /// <summary>
+        /// 隐藏窗口
+        /// </summary>
+        /// <param name="_name"></param>
         public void HideModule(string _name)
         {
             uiOpened.TryGetValue(_name, out UIbase ui);
@@ -94,6 +107,9 @@ namespace DapanzAI.UI
             }
         }
 
+        /// <summary>
+        /// 卸载所有窗口（一般用于切换场景）
+        /// </summary>
         public void UnloadAll()
         {
             foreach(var info in uiOpened)
@@ -102,6 +118,9 @@ namespace DapanzAI.UI
             }
         }
 
+        /// <summary>
+        /// 隐藏所有窗口（一般用于播放剧情）
+        /// </summary>
         public void HideAll()
         {
             foreach (var info in uiOpened)
@@ -113,6 +132,9 @@ namespace DapanzAI.UI
             }
         }
 
+        /// <summary>
+        /// 恢复所有隐藏的窗口
+        /// </summary>
         public void ResumeAll()
         {
             foreach (var info in uiOpened)

@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 namespace DapanzAI
 {
-    [CustomEditor(typeof(BTAgent)), CanEditMultipleObjects]
+    [CustomEditor(typeof(EnemyBTAgent)), CanEditMultipleObjects]
     public class BTAgentEditor : Editor
     {
         /*

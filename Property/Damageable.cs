@@ -8,11 +8,11 @@ namespace DapanzAI
     {
 
 
-        [Name("最大生命值")]
+        //[Name("最大生命值")]
         public int startingHealth = 5;
-        [Name("受伤后无敌")]
+        //[Name("受伤后无敌")]
         public bool invulnerableAfterDamage = true;
-        [Name("无敌时间")]
+        //[Name("无敌时间")]
         public float invulnerabilityDuration = 3f;
 
         protected bool m_Invulnerable;

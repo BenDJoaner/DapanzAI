@@ -7,7 +7,7 @@ namespace DapanzAI.Actions
     [Serializable]
     public class LoopSequence:ActionBase
     {
-        [Name("行为")]
+        //[Name("行为")]
         public ActionBase[] actionList;
         public override BTNode TryAction(BTAgent behavier)
         {

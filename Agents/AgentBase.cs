@@ -8,27 +8,59 @@ namespace DapanzAI
     [RequireComponent(typeof(Collider2D))]
     public class AgentBase : MonoBehaviour
     {
-        [EnumName("基础行为状态")]
+        /// <summary>
+        /// 基础行为状态
+        /// </summary>
+        //[EnumName("基础行为状态")]
         public ControlState state = ControlState.sleep;
-        [Name("重力生效")]
+        /// <summary>
+        /// 重力生效
+        /// </summary>
+        //[Name("重力生效")]
         public bool updateGravity = true;
-        [EnumName("脚踩的东西")]
+        /// <summary>
+        /// 脚踩的东西
+        /// </summary>
+        //[EnumName("脚踩的东西")]
         public GroundType groundType;
-        [Name("角色模型")]
+        /// <summary>
+        /// 角色模型
+        /// </summary>
+        //[Name("角色模型")]
         public Transform puppet = null;
-        [Name("手部位置")]
+        /// <summary>
+        /// 手部位置
+        /// </summary>
+        //[Name("手部位置")]
         public Transform handAnchor = null;
-        [EnumName("自动面向")]
+        /// <summary>
+        /// 自动面向
+        /// </summary>
+        //[EnumName("自动面向")]
         public Facing AutoFace = Facing.right;
-        [EnumName("强制面向")]
+        /// <summary>
+        /// 强制面向
+        /// </summary>
+        //[EnumName("强制面向")]
         public Facing forceFace = Facing.none;
-        [EnumName("碰到墙")]
+        /// <summary>
+        /// 碰到墙
+        /// </summary>
+        //[EnumName("碰到墙")]
         public Facing attachWall = Facing.none;
+        /// <summary>
+        /// 两边检查点
+        /// </summary>
         [Header("左右/地面检查点偏移")]
         [Range(0, 5)]
-        [Name("两边检查点")] public float sideCheckOffset = 1;
+        //[Name("两边检查点")] 
+        public float sideCheckOffset = 1;
+        /// <summary>
+        /// 地面检查点
+        /// </summary>
         [Range(0, -5)]
-        [Name("地面检查点")] public float groundCheckOffset = -0.3f;
+        //[Name("地面检查点")] 
+        public float groundCheckOffset = -0.3f;
 
         LayerMask grassGroundMask;
         LayerMask rockGroundMask;
