@@ -11,7 +11,7 @@ namespace DapanzAI.Actions
         public int Times;
         //[Name("行为")]
         public ActionBase[] actionList;
-        public override BTNode TryAction(BTAgent behavier)
+        public override BTNode TryAction(EnemyBTAgent behavier)
         {
             BTNode[] nodeList = new BTNode[actionList.Length];
             selfAction = BT.Repeat(Times).OpenBranch(nodeList);

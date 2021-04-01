@@ -17,7 +17,7 @@ namespace DapanzAI
         /// </summary>
         /// <param name="behavier"> 传入 BTAgent 方可获取信息</param>
         /// <returns> 返回BTNode 可用于赋值其他 ActionBase 的派生类</returns>
-        public virtual BTNode TryAction(BTAgent behavier)
+        public virtual BTNode TryAction(EnemyBTAgent behavier)
         {
             return selfAction;
         }

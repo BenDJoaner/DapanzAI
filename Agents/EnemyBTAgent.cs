@@ -28,13 +28,28 @@ namespace DapanzAI
         [HideInInspector]
         public float target_distance;
 
-
         Vector2 lockPosition;
 
         Transform Pretarget;//预先检测的目标目前是玩家
 
         public virtual void DamangerEnable(bool flag) { }
 
+        public override void ActiveAI()
+        {
+            base.ActiveAI();
+            _ = mainNode.OpenBranch(
+                BT.While(() => { return m_AIState != AIState.shutdown; }).OpenBranch(
+                    AIAction.TryAction(this)
+                ),
+                BT.Call(OnDead),
+                BT.Terminate()
+            );
+        }
+
+        protected override AgentData Init()
+        {
+            return ebData;
+        }
         /// <summary>
         /// 追踪目标
         /// </summary>
@@ -75,7 +90,7 @@ namespace DapanzAI
             }
             m_AIState = _state;
         }
-           
+
         /// <summary>
         /// 检测是否在攻击范围内
         /// </summary>
@@ -114,7 +129,8 @@ namespace DapanzAI
         /// <summary>
         /// 执行面对目标
         /// </summary>
-        public void FaceToTarget() {
+        public void FaceToTarget()
+        {
             if (target.position.x - transform.position.x > 0)
             {
                 forceFace = Facing.right;
@@ -137,7 +153,8 @@ namespace DapanzAI
         /// <summary>
         /// 锁定目标
         /// </summary>
-        public void LockTargetPosition() {
+        public void LockTargetPosition()
+        {
             lockPosition = target.position;
         }
 
@@ -160,7 +177,7 @@ namespace DapanzAI
             {
                 Vector3 dir = Pretarget.position - transform.position;
                 target_direct = dir.sqrMagnitude;
-                Vector2 curDire = AutoFace == Facing.right? Vector2.right : Vector2.left;
+                Vector2 curDire = AutoFace == Facing.right ? Vector2.right : Vector2.left;
                 Vector3 testForward = Quaternion.Euler(0, 0, Mathf.Sign(curDire.x) * ebData.viewDirection) * curDire;
                 target_angle = Vector3.Angle(testForward, dir);
                 target_distance = Vector2.Distance(Pretarget.position, transform.position);

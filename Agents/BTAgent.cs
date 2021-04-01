@@ -10,33 +10,24 @@ namespace DapanzAI
     public class BTAgent: AgentBase
     {
         [Space]
-        //[Name("[配置]行为")]
-        public BTAgentData bData;
         //[EnumName("AI状态")]
         public AIState m_AIState;
         //[Name("AI文件")]
         public ActionBase AIAction;
 
-        private Root mainNode = BT.Root();
+        protected Root mainNode = BT.Root();
 
         protected override AgentData Init()
         {
-            return bData;
+            return base.Init();
         }
 
         /// <summary>
         /// 启动AI
         /// </summary>
-        public void ActiveAI()
+        public virtual void ActiveAI()
         {
             SetAIState(AIState.sleep);
-            _ = mainNode.OpenBranch(
-                BT.While(() => { return m_AIState != AIState.shutdown; }).OpenBranch(
-                    AIAction.TryAction(this)
-                ),
-                BT.Call(OnDead),
-                BT.Terminate()
-            );
         }
 
         /// <summary>

@@ -16,7 +16,7 @@ namespace DapanzAI.Actions
         private BTNode[] _sleep_node_list;
         private BTNode[] _patrol_node_list;
         private BTNode[] _battle_node_list;
-        public override BTNode TryAction(BTAgent behavier)
+        public override BTNode TryAction(EnemyBTAgent behavier)
         {
             _sleep_node_list = new BTNode[sleepActionList.Length];
             for (int i = 0; i < sleepActionList.Length; i++)

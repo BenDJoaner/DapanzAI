@@ -9,7 +9,7 @@ namespace DapanzAI.Actions
     {
         //[Name("行为")]
         public ActionBase[] actionList;
-        public override BTNode TryAction(BTAgent behavier)
+        public override BTNode TryAction(EnemyBTAgent behavier)
         {
             BTNode[] nodeList = new BTNode[actionList.Length];
             for (int i = 0; i < actionList.Length; i++)
