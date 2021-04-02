@@ -15,14 +15,11 @@ namespace DapanzAI
         /// <summary>
         /// 最大生命值
         /// </summary>
-        //[Name("最大生命值")]
         public int startingHealth = 5;
-        //[Name("受伤后无敌")]
         /// <summary>
         /// 受伤后无敌
         /// </summary>
         public bool invulnerableAfterDamage = true;
-        //[Name("无敌时间")]
         /// <summary>
         /// 无敌时间
         /// </summary>
@@ -32,7 +29,6 @@ namespace DapanzAI
         private int m_CurrentDefend;
         private int m_CurrentHealth;
         private float m_defendRecoverTimer;
-        protected bool m_ResetHealthOnSceneReload;//重置场景时候需要初始化标记，用于对象池回收
         /// <summary>
         /// 当前生命
         /// </summary>
@@ -41,6 +37,9 @@ namespace DapanzAI
         /// 不会受到伤害
         /// </summary>
         public bool IsInvulerable => m_Invulnerable;
+        /// <summary>
+        /// 当前防御值
+        /// </summary>
         public int CurrentDefend => m_CurrentDefend;
         /// <summary>
         /// 初始化
@@ -51,6 +50,14 @@ namespace DapanzAI
         /// </summary>
         /// <param name="amount">值</param>
         protected virtual void OnGetHealth(int amount) { }
+        /// <summary>
+        /// 格挡
+        /// </summary>
+        protected virtual void OnDefending(Damager damager) { }
+        /// <summary>
+        /// 破防
+        /// </summary>
+        protected virtual void OnBreakDefend(Damager damager) { }
         /// <summary>
         /// 被攻击
         /// </summary>
@@ -82,6 +89,15 @@ namespace DapanzAI
                     m_Invulnerable = false;
                 }
             }
+
+            if (m_CurrentDefend <= 0 && m_defendRecoverTimer >0)
+            {
+                m_defendRecoverTimer -= Time.deltaTime;
+                if (m_defendRecoverTimer <= 0)
+                {
+                    m_CurrentDefend = startDefend;
+                }
+            }
         }
 
         public void EnableInvulnerability(bool ignoreTimer = false)
@@ -97,20 +113,37 @@ namespace DapanzAI
 
         public void TakeDamage(Damager damager, bool ignoreInvincible = false)
         {
-
-            if ((m_Invulnerable && !ignoreInvincible) || m_CurrentHealth <= 0)
+            if (m_Invulnerable && !ignoreInvincible)
                 return;
 
-            m_CurrentHealth -= damager.damage;
-            OnGetHit(damager);
-            EnableInvulnerability();
-            if (m_CurrentHealth <= 0)
+            
+
+            if (startDefend >0 && m_CurrentDefend > 0)
             {
-                OnDie(damager);
-                m_ResetHealthOnSceneReload = true;
+                ActivtDefend(damager);
+                if (m_CurrentDefend >= 0)
+                {
+                    return;
+                }
+            }
+
+            //受到伤害部分
+            OnGetHit(damager);
+            if (m_CurrentHealth > 0)
+            {
+                EnableInvulnerability();
+                m_CurrentHealth -= damager.damage;
+                if (m_CurrentHealth <= 0)
+                {
+                    OnDie(damager);
+                }
             }
         }
 
+        /// <summary>
+        /// 得到治疗
+        /// </summary>
+        /// <param name="amount"></param>
         public void GainHealth(int amount)
         {
             m_CurrentHealth += amount;
@@ -121,6 +154,10 @@ namespace DapanzAI
             OnGetHealth(amount);
         }
 
+        /// <summary>
+        /// 设置生命值
+        /// </summary>
+        /// <param name="amount"></param>
         public void SetHealth(int amount)
         {
             startingHealth = amount;
@@ -129,19 +166,24 @@ namespace DapanzAI
             if (m_CurrentHealth <= 0)
             {
                 OnDie(null);
-                m_ResetHealthOnSceneReload = true;
                 EnableInvulnerability();
             }
         }
 
-        public void ActivtDefend()
+        /// <summary>
+        /// 防御
+        /// </summary>
+        /// <param name="damager"></param>
+        public void ActivtDefend(Damager damager)
         {
-
-        }
-
-        public void BreakDefend()
-        {
-
+            OnDefending(damager);
+            EnableInvulnerability();
+            m_CurrentDefend -= damager.damage;
+            if(m_CurrentDefend <= 0)
+            {
+                m_defendRecoverTimer = defendRecoverAfterBreak;
+                OnBreakDefend(damager);
+            }
         }
     }
 }

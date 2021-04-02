@@ -92,7 +92,6 @@
     <Compile Include="Property\Damager.cs" />
     <Compile Include="Actions\EmptyAction.cs" />
     <Compile Include="Property\PropertyBase.cs" />
-    <Compile Include="Property\ScriptableTarget.cs" />
     <Compile Include="Skill\SkillManager.cs" />
     <Compile Include="UI\UIAssetsConfig.cs" />
     <Compile Include="UI\UIbase.cs" />

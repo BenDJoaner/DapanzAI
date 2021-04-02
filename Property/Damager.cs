@@ -19,15 +19,23 @@ namespace DapanzAI
         public Collider2D LastHit { get { return m_LastHit; } }
 
         //[Name("伤害值")]
+        /// <summary>
+        /// 伤害值
+        /// </summary>
         public int damage = 1;
         [Header("调整攻击效果范围")]
         //[Name("坐标偏移")]
         public Vector2 offset = new Vector2(1.5f, 1f);
         //[Name("大小缩放")]
         public Vector2 size = new Vector2(2.5f, 1f);
+
+        /// <summary>
+        /// 攻击后Damanger 失效
+        /// </summary>
         public bool disableDamageAfterHit = false;
-        [Tooltip("如果开启，当攻击一个无敌的damageble的时候，依然会触发OnhHt()，不过不会扣血")]
-        //[Name("忽视无敌状态")]
+        /// <summary>
+        /// 忽视无敌状态
+        /// </summary>
         public bool ignoreInvincibility = false;
         //[Name("可以伤害的Layer")]
         public LayerMask hittableLayers;
