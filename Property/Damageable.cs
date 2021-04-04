@@ -1,35 +1,66 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
 
 namespace DapanzAI
 {
     public class Damageable : MonoBehaviour
     {
-
-
+        /// <summary>
+        /// 防御点数
+        /// </summary>
+        public int startDefend = 0;
+        /// <summary>
+        /// 破防后恢复防御的时间
+        /// </summary>
+        public float defendRecoverAfterBreak = 1;
+        /// <summary>
+        /// 最大生命值
+        /// </summary>
         //[Name("最大生命值")]
         public int startingHealth = 5;
         //[Name("受伤后无敌")]
+        /// <summary>
+        /// 受伤后无敌
+        /// </summary>
         public bool invulnerableAfterDamage = true;
         //[Name("无敌时间")]
+        /// <summary>
+        /// 无敌时间
+        /// </summary>
         public float invulnerabilityDuration = 3f;
-
-        protected bool m_Invulnerable;
-        protected float m_InulnerabilityTimer;
-        [SerializeField]
-        protected int m_CurrentHealth;
+        private bool m_Invulnerable;
+        private float m_InulnerabilityTimer;
+        private int m_CurrentDefend;
+        private int m_CurrentHealth;
+        private float m_defendRecoverTimer;
         protected bool m_ResetHealthOnSceneReload;//重置场景时候需要初始化标记，用于对象池回收
-
+        /// <summary>
+        /// 当前生命
+        /// </summary>
         public int CurrentHealth => m_CurrentHealth;
-
+        /// <summary>
+        /// 不会受到伤害
+        /// </summary>
         public bool IsInvulerable => m_Invulnerable;
-
+        public int CurrentDefend => m_CurrentDefend;
+        /// <summary>
+        /// 初始化
+        /// </summary>
         protected virtual void Init() { }
+        /// <summary>
+        /// 获得生命
+        /// </summary>
+        /// <param name="amount">值</param>
         protected virtual void OnGetHealth(int amount) { }
+        /// <summary>
+        /// 被攻击
+        /// </summary>
+        /// <param name="damager"></param>
         protected virtual void OnGetHit(Damager damager) { }
+        /// <summary>
+        /// 死亡
+        /// </summary>
+        /// <param name="damager"></param>
         protected virtual void OnDie(Damager damager) { }
-        protected virtual void OnSetHealth() { }
         private void Start()
         {
             m_CurrentHealth = startingHealth;
@@ -101,7 +132,16 @@ namespace DapanzAI
                 m_ResetHealthOnSceneReload = true;
                 EnableInvulnerability();
             }
-            OnSetHealth();
+        }
+
+        public void ActivtDefend()
+        {
+
+        }
+
+        public void BreakDefend()
+        {
+
         }
     }
 }
