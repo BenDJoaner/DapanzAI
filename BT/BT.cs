@@ -757,7 +757,7 @@ namespace DapanzAI
 }
 
 #if UNITY_EDITOR
-namespace BTAI
+namespace DapanzAI
 {
     public interface IBTDebugable
     {

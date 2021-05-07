@@ -6,17 +6,17 @@
     /// </summary>
     public enum GroundType
     {
-        //[EnumName("在空中")]
+        ////[EnumName("在空中")]
         Air,
-        //[EnumName("草地上")]
+        ////[EnumName("草地上")]
         Grass,
-        //[EnumName("石头上")]
+        ////[EnumName("石头上")]
         Rock,
-        //[EnumName("水面上")]
+        ////[EnumName("水面上")]
         Water,
-        //[EnumName("沙地上")]
+        ////[EnumName("沙地上")]
         Sand,
-        //[EnumName("在冰上")]
+        ////[EnumName("在冰上")]
         Ice,
     }
 
@@ -63,9 +63,9 @@
     /// </summary>
     public enum ControlState
     {
-        //[EnumName("休眠")]
+        ////[EnumName("休眠")]
         sleep,
-        //[EnumName("启动")]
+        ////[EnumName("启动")]
         awake
     }
 
@@ -74,11 +74,11 @@
     /// </summary>
     public enum Facing
     {
-        //[EnumName("无")]
+        ////[EnumName("无")]
         none,
-        //[EnumName("右")]
+        ////[EnumName("右")]
         right,
-        //[EnumName("左")]
+        ////[EnumName("左")]
         left
     }
 
@@ -87,17 +87,17 @@
     /// </summary>
     public enum AttackDesire
     {
-        //[EnumName("胆小")]
+        ////[EnumName("胆小")]
         cowardly,
-        //[EnumName("木头")]
+        ////[EnumName("木头")]
         woody,
-        //[EnumName("小心")]
+        ////[EnumName("小心")]
         careful,
-        //[EnumName("正常")]
+        ////[EnumName("正常")]
         normal,
-        //[EnumName("积极")]
+        ////[EnumName("积极")]
         positive,
-        //[EnumName("疯狂")]
+        ////[EnumName("疯狂")]
         craze
     }
 
@@ -106,17 +106,17 @@
     /// </summary>
     public enum NioseLevel
     {
-        //[EnumName("无声")]
+        ////[EnumName("无声")]
         silent,
-        //[EnumName("轻声")]
+        ////[EnumName("轻声")]
         whisper,
-        //[EnumName("小声")]
+        ////[EnumName("小声")]
         low,
-        //[EnumName("正常")]
+        ////[EnumName("正常")]
         normal,
-        //[EnumName("大声")]
+        ////[EnumName("大声")]
         loud,
-        //[EnumName("超大声")]
+        ////[EnumName("超大声")]
         extreme,
     }
 
@@ -129,22 +129,22 @@
         /// 关机状态，不进行BT.Tick，无法通过改变状态启动，需要重新Active
         /// 一般来说已经死亡，调用了BT.Terminate()
         /// </summary>
-        //[EnumName("关机")] 
+        ////[EnumName("关机")] 
         shutdown,
         /// <summary>
         /// 休眠状态，进行休眠的BT逻辑，对声音和受击有感知，无碰撞伤害
         /// </summary>
-        //[EnumName("睡觉")] 
+        ////[EnumName("睡觉")] 
         sleep,
         /// <summary>
         /// 巡逻状态，进行巡逻，对声音，可见区域的事件有感知，有碰撞伤害
         /// </summary>
-        //[EnumName("巡视")] 
+        ////[EnumName("巡视")] 
         patrol,
         /// <summary>
         /// 有且仅有一个目标，进行跟踪和攻击，有碰撞伤害
         /// </summary>
-        //[EnumName("战斗")] 
+        ////[EnumName("战斗")] 
         battle,//战斗
     }
 

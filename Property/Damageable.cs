@@ -71,6 +71,7 @@ namespace DapanzAI
         private void Start()
         {
             m_CurrentHealth = startingHealth;
+            m_CurrentDefend = startDefend;
             Init();
         }
         void OnEnable()
@@ -133,6 +134,7 @@ namespace DapanzAI
             {
                 EnableInvulnerability();
                 m_CurrentHealth -= damager.damage;
+                m_defendRecoverTimer = defendRecoverAfterBreak;
                 if (m_CurrentHealth <= 0)
                 {
                     OnDie(damager);

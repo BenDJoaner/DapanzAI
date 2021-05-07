@@ -17,7 +17,7 @@ namespace DapanzAI
         SerializedProperty m_HittableLayersProp;
         SerializedProperty m_OnDamageableHitProp;
         SerializedProperty m_OnNonDamageableHitProp;
-
+        SerializedProperty m_OnActiveDamage;
         void OnEnable ()
         {
             m_DamageProp = serializedObject.FindProperty ("damage");
@@ -27,6 +27,8 @@ namespace DapanzAI
             m_HittableLayersProp = serializedObject.FindProperty("hittableLayers");
             m_OnDamageableHitProp = serializedObject.FindProperty("OnDamageableHit");
             m_OnNonDamageableHitProp = serializedObject.FindProperty("OnNonDamageableHit");
+            m_OnActiveDamage = serializedObject.FindProperty("OnActiveDamage");
+
         }
 
         public override void OnInspectorGUI ()
@@ -40,7 +42,7 @@ namespace DapanzAI
             EditorGUILayout.PropertyField(m_HittableLayersProp);
             EditorGUILayout.PropertyField(m_OnDamageableHitProp);
             EditorGUILayout.PropertyField(m_OnNonDamageableHitProp);
-
+            EditorGUILayout.PropertyField(m_OnActiveDamage);
             serializedObject.ApplyModifiedProperties ();
         }
 

@@ -15,12 +15,18 @@ namespace DapanzAI
         public class HealEvent : UnityEvent<int, Damageable>
         { }
 
-        //[Name("受到伤害")]
+        [Serializable]
+        public class DefendEvent : UnityEvent<Damager>
+        { }
+
+        ////[Name("受到伤害")]
         public DamageEvent OnTakeDamage;
-        //[Name("死亡")]
+        ////[Name("死亡")]
         public DamageEvent OnDead;
-        //[Name("获得治疗")]
+        ////[Name("获得治疗")]
         public HealEvent OnGainHealth;
+        public DefendEvent OnBreakDefendEvent;
+        public DefendEvent OnDefendEvent;
 
         Coroutine m_FlickeringCoroutine = null;
         private Color m_OriginalColor;
@@ -80,6 +86,16 @@ namespace DapanzAI
         protected override void OnGetHealth(int amount)
         {
             OnGainHealth.Invoke(amount, this);
+        }
+
+        protected override void OnBreakDefend(Damager damager)
+        {
+            OnBreakDefendEvent.Invoke(damager);
+        }
+
+        protected override void OnDefending(Damager damager)
+        {
+            OnBreakDefendEvent.Invoke(damager);
         }
     }
 }

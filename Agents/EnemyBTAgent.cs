@@ -9,12 +9,12 @@ namespace DapanzAI
     public class EnemyBTAgent : BTAgent
     {
         [Space]
-        //[Name("[配置]敌人行为")]
+        ////[Name("[配置]敌人行为")]
         public BTAgentData ebData;
-        //[EnumName("攻击欲望")]
+        ////[EnumName("攻击欲望")]
         public AttackDesire desire;
 
-        //[Name("检测频率")]
+        ////[Name("检测频率")]
         public float UpdateRate = 1;
 
         [HideInInspector]
@@ -36,7 +36,6 @@ namespace DapanzAI
 
         public override void ActiveAI()
         {
-            base.ActiveAI();
             _ = mainNode.OpenBranch(
                 BT.While(() => { return m_AIState != AIState.shutdown; }).OpenBranch(
                     AIAction.TryAction(this)
@@ -112,7 +111,7 @@ namespace DapanzAI
         /// </summary>
         public void ScanForTarget()
         {
-            Debug.Log(target_direct + ">" + ebData.sight * ebData.viewDirection + " / " + target_angle + ">" + (ebData.viewFov * 0.5f));
+            //Debug.Log(target_direct + ">" + ebData.sight * ebData.viewDirection + " / " + target_angle + ">" + (ebData.viewFov * 0.5f));
             if (target_direct > ebData.sight * ebData.sight)
             {
                 SetAIState(AIState.patrol);
@@ -181,7 +180,7 @@ namespace DapanzAI
                 Vector3 testForward = Quaternion.Euler(0, 0, Mathf.Sign(curDire.x) * ebData.viewDirection) * curDire;
                 target_angle = Vector3.Angle(testForward, dir);
                 target_distance = Vector2.Distance(Pretarget.position, transform.position);
-                print("check >>>> " + target_direct + "/" + target_angle + "/" + target_distance);
+                //print("check >>>> " + target_direct + "/" + target_angle + "/" + target_distance);
                 yield return new WaitForSeconds(UpdateRate);
             }
         }

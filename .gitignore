@@ -339,3 +339,5 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 DapanzAI.csproj
+Actions/.DS_Store
+.DS_Store

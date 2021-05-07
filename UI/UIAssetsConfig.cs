@@ -19,7 +19,7 @@ namespace DapanzAI.UI
         private void OnEnable()
         {
 #if UNITY_EDITOR
-            m_UIMaps = new Dictionary<string, UI>();
+            m_UIMaps = new Dictionary<string, GameObject>();
 #else
             m_UIMaps = new Dictionary<string, GameObject>(m_UIList.Count);
 #endif

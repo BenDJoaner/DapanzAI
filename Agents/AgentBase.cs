@@ -11,55 +11,55 @@ namespace DapanzAI
         /// <summary>
         /// 基础行为状态
         /// </summary>
-        //[EnumName("基础行为状态")]
+        ////[EnumName("基础行为状态")]
         public ControlState state = ControlState.sleep;
         /// <summary>
         /// 重力生效
         /// </summary>
-        //[Name("重力生效")]
+        ////[Name("重力生效")]
         public bool updateGravity = true;
         /// <summary>
         /// 脚踩的东西
         /// </summary>
-        //[EnumName("脚踩的东西")]
+        ////[EnumName("脚踩的东西")]
         public GroundType groundType;
         /// <summary>
         /// 角色模型
         /// </summary>
-        //[Name("角色模型")]
+        ////[Name("角色模型")]
         public Transform puppet = null;
         /// <summary>
         /// 手部位置
         /// </summary>
-        //[Name("手部位置")]
+        ////[Name("手部位置")]
         public Transform handAnchor = null;
         /// <summary>
         /// 自动面向
         /// </summary>
-        //[EnumName("自动面向")]
+        ////[EnumName("自动面向")]
         public Facing AutoFace = Facing.right;
         /// <summary>
         /// 强制面向
         /// </summary>
-        //[EnumName("强制面向")]
+        ////[EnumName("强制面向")]
         public Facing forceFace = Facing.none;
         /// <summary>
         /// 碰到墙
         /// </summary>
-        //[EnumName("碰到墙")]
+        ////[EnumName("碰到墙")]
         public Facing attachWall = Facing.none;
         /// <summary>
         /// 两边检查点
         /// </summary>
         [Header("左右/地面检查点偏移")]
         [Range(0, 5)]
-        //[Name("两边检查点")] 
+        ////[Name("两边检查点")] 
         public float sideCheckOffset = 1;
         /// <summary>
         /// 地面检查点
         /// </summary>
         [Range(0, -5)]
-        //[Name("地面检查点")] 
+        ////[Name("地面检查点")] 
         public float groundCheckOffset = -0.3f;
 
         LayerMask grassGroundMask;
@@ -88,7 +88,7 @@ namespace DapanzAI
         /// <summary>
         /// 初始化
         /// </summary>
-        protected virtual AgentData Init() { return new AgentData(); }
+        protected virtual AgentData Init() { return data; }
         /// <summary>
         /// 输入更新
         /// Input操作在此函数中更新，以确保当前帧的指令可以执行
@@ -149,6 +149,10 @@ namespace DapanzAI
 
         void FixedUpdate()
         {
+            if(data == null)
+            {
+                return;
+            }
             //状态检测
             UpdateInput();
             UpdateGrounding();
@@ -246,7 +250,7 @@ namespace DapanzAI
         /// </summary>
         void UpdateGrounding()
         {
-            if (data.jumpForce == 0)
+            if (data == null || data.jumpForce == 0)
             {
                 return;
             }
